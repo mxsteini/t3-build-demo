@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+  <n:excludeDisplayedNews newsItem="{newsItem}"></n:excludeDisplayedNews>
+
+  <!-- media preview element -->
+  <div class="wrapper-card img-enlarge">
+    <f:if condition="{newsItem.mediaPreviews}">
+      <f:then>
+        <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+          <f:if condition="{mediaElement.originalResource.type} == 2">
+            <figure>
+              <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                <f:image image="{mediaElement}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.mediacard.image.maxWidth)}" height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.mediacard.image.maxHeight)}"></f:image>
+              </n:link>
+              <f:if condition="{mediaElement.originalResource.properties.copyright}||{mediaElement.originalResource.properties.creator}">
+                <small tabindex="0" role="tooltip" class="tooltip" title="Info">
+                                    <span data-tooltip="{mediaElement.originalResource.properties.copyright}{f:if(condition: '{mediaElement.originalResource.properties.copyright} && {mediaElement.originalResource.properties.creator}', then: ',')}{f:if(condition: '{mediaElement.originalResource.properties.creator}', then: ' {f:translate(key:\'LLL:EXT:jwmusterprojekt11/Resources/Private/Language/locallang.xlf:jwmusterprojekt11.by\')}: {mediaElement.originalResource.properties.creator}')}">&copy;</span>
+                  <i class="vhidden">{mediaElement.originalResource.properties.copyright}{f:if(condition:'{mediaElement.originalResource.properties.creator}',then:'{f:translate(key:\'LLL:EXT:jwmusterprojekt11/Resources/Private/Language/locallang.xlf:jwmusterprojekt11.by\')}:{mediaElement.originalResource.properties.creator}')}</i>
+                </small>
+              </f:if>
+            </figure>
+          </f:if>
+          <f:if condition="{mediaElement.originalResource.type} == 4">
+            <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"></f:render>
+          </f:if>
+          <f:if condition="{mediaElement.originalResource.type} == 5">
+            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+              <f:image image="{mediaElement}" title="{mediaElement.originalResource.title} {f:if(condition: '{mediaElement.originalResource.properties.copyright}', then: 'Copyright: {mediaElement.originalResource.properties.copyright}')} {f:if(condition: '{mediaElement.originalResource.properties.creator}', then: '{f:translate(key:\'LLL:EXT:jwmusterprojekt11/Resources/Private/Language/locallang.xlf:jwmusterprojekt11.by\')}: {mediaElement.originalResource.properties.creator}')}" alt="{mediaElement.originalResource.alternative}" width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.mediacard.image.maxWidth)}" height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.mediacard.image.maxHeight)}"></f:image>
+            </n:link>
+          </f:if>
+        </f:alias>
+      </f:then>
+      <f:else>
+        <f:if condition="{settings.displayDummyIfNoMedia}">
+          <div class="news-img-wrap">
+					<span class="no-media-element">
+						<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+							<f:image src="{settings.list.media.dummyImage}" title="" alt="" maxWidth="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.maxWidth)}" maxHeight="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else: settings.list.media.image.maxHeight)}"></f:image>
+						</n:link>
+					</span>
+          </div>
+        </f:if>
+      </f:else>
+    </f:if>
+    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+      <div class="card-text">
+        <h3>
+          <span itemprop="headline">{newsItem.title}</span>
+        </h3>
+        <p>
+          <f:if condition="{newsItem.teaser}">
+            <f:then>
+              {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+              respectWordBoundaries:'1') -> f:format.stripTags()}
+            </f:then>
+            <f:else>
+              {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}',
+              respectWordBoundaries:'1') -> f:format.stripTags()}
+            </f:else>
+          </f:if>
+        </p>
+      </div>
+    </n:link>
+  </div>
+</div>
+</html>

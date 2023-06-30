@@ -1,0 +1,108 @@
+button {
+  border: none;
+  border-radius: 0;
+  background: var(--accent);
+  font-family: "Red Hat Text", Arial, sans-serif;;
+  font-size: 16px;
+  line-height: 22px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  width: auto;
+  gap: 20px;
+  justify-content: space-between;
+  cursor: pointer;
+
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 18px;
+  }
+
+  > * {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  img {
+    width: 36px;
+    height: auto;
+  }
+
+  &.cookie-panel__button {
+    background-color: var(--grey_dark);
+
+    &--color--accent {
+      background-color: var(--accent);
+    }
+  }
+}
+
+.btn--email {
+  font-family: "Red Hat Text", Arial, sans-serif;;
+  font-size: 16px;
+  line-height: 26px;
+  text-decoration: none;
+  font-weight: 500;
+
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 18px;
+  }
+}
+
+
+.ce-mstitb_site_textpic {
+  .mstitb_textpic__bodytext p {
+    display: flex;
+    justify-content: end;
+  }
+
+  a span {
+    text-decoration: none;
+    margin: 5px;
+    position: relative;
+    transition: transform .1s ease-in-out;
+  }
+
+  a span::before, a span::after {
+    content: "";
+    position: absolute;
+    background-color: var(--orange);
+    transition: transform .5s;
+  }
+
+  a span::after {
+    left: 0;
+    width: 100%;
+    height: 3px;
+    bottom: -1px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  a span:hover::after {
+    transform: scaleX(1);
+  }
+
+  .btn--email {
+    text-align: right;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: fit-content;
+
+    span {
+      height: fit-content;
+      align-items: center;
+      display: flex;
+    }
+
+    &::after {
+      content: url(/typo3conf/ext/mstitb_site/Resources/Public/images/icons/Mobile_Mail_50x50.svg);
+      width: 60px;
+      height: 60px;
+      margin-left: 10px;
+    }
+  }
+}
+
+

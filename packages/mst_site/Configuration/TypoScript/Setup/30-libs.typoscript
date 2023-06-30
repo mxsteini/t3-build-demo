@@ -1,0 +1,71 @@
+lib {
+    contentElement {
+        layoutRootPaths.20 =   EXT:mst_site/Resources/Private/Components/Layouts/
+        partialRootPaths.20 =  EXT:mst_site/Resources/Private/Components/Partials/
+        templateRootPaths.20 = EXT:mst_site/Resources/Private/Components/Templates/
+        dataProcessing {
+            1 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            1 {
+                references.fieldName = image
+                references.table = tt_content
+                as = images
+            }
+            2 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            2 {
+                if.isTrue.field = tx_container_parent
+                table = tt_content
+                uidInList.field = tx_container_parent
+                as = container
+            }
+        }
+    }
+
+    containerElement < .contentElement
+    containerElement {
+        layoutRootPaths.20 =   EXT:mst_site/Resources/Private/Components/Layouts/
+        partialRootPaths.20 =  EXT:mst_site/Resources/Private/Components/Partials/
+        templateRootPaths.20 = EXT:mst_site/Resources/Private/Components/Templates/
+        dataProcessing {
+            10 = B13\Container\DataProcessing\ContainerProcessor
+            10 {
+                colPos = 1000
+                as = col_0
+            }
+
+            20 = B13\Container\DataProcessing\ContainerProcessor
+            20 {
+                colPos = 1001
+                as = col_1
+            }
+
+            30 = B13\Container\DataProcessing\ContainerProcessor
+            30 {
+                colPos = 1002
+                as = col_2
+            }
+        }
+    }
+
+
+}
+
+lib.gpvar = COA
+lib.gpvar {
+    # Schuetzt vor XSS, daher auch ein COA!
+    stdWrap.htmlSpecialChars = 1
+    10 = TEXT
+    10 {
+        value = GP:{current}
+        wrap3 = {^}
+        wrap3.splitChar = ^
+        insertData = 1
+        stdWrap.insertData = 1
+    }
+}
+
+
+
+lib.parseFunc_RTE.tags.a.typolink {
+    wrap = <span>|</span>
+    ATagBeforeWrap = 1
+}

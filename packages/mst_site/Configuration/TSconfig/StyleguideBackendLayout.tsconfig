@@ -1,0 +1,28 @@
+mod.web_layout.BackendLayouts {
+    styleguide {
+        title = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:belayout-1col
+        icon = EXT:mst_site/Resources/Public/Icons/Backendlayouts/onecol.png
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-main
+                                colPos = 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    standard >
+    1col >
+    2col >
+    3col >
+}

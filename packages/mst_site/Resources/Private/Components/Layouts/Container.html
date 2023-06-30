@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:gc="http://typo3.org/ns/Greiner/GreinerCore/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:variable name="useSection" value="yes"></f:variable>
+<f:if condition="{data.colPos} > 10">
+  <f:variable name="useSection" value="no"></f:variable>
+</f:if>
+
+<f:spaceless>
+  <f:if condition="{useSection} == 'yes'">
+    <f:then>
+      <section class="mstitb_section mstitb_section--layout-{data.layout} mstitb_section--ctype-{data.CType} mstitb_section
+                    {f:if(condition: '{data.frame_class} != empty', then: ' mstitb_section--frame-{data.frame_class} ')}
+                    {f:if(condition: '{data.layout} > 0', then: ' mstitb_section--size-{data.layout} ')}">
+        <div class="mstitb_container">
+            <f:render section="Main" optional="true"></f:render>
+        </div>
+      </section>
+    </f:then>
+    <f:else>
+        <f:render section="Main" optional="true"></f:render>
+    </f:else>
+  </f:if>
+</f:spaceless>
+
+</html>

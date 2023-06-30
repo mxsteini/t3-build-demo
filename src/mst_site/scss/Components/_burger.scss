@@ -1,0 +1,76 @@
+$barWidth: 16;
+$barHeight: 2;
+
+.mstitb_burger {
+  margin-top: 5px;
+  @include size(map-get($burgerSize, 'small') + px);
+  padding: calc((map-get($burgerSize, 'small') - $barWidth) / 2) + px;
+  background: white;
+  /*margin-top: 20px;*/
+  position: relative;
+  box-sizing: border-box;
+  @media (min-width: map-get($breakpoints, 'medium')) {
+    @include size(map-get($burgerSize, 'small') + px);
+    padding: calc((map-get($burgerSize, 'small') - $barWidth) / 2) + px;
+  }
+
+  &__inner {
+    @include size($barWidth + px);
+    position: relative;
+
+    &:last-child {
+      position: absolute;
+      top: calc((map-get($burgerSize, 'small') - $barWidth) / 2) + px;
+      left: calc((map-get($burgerSize, 'small') - $barWidth) / 2) + px;
+      //@media (min-width: map-get($breakpoints, 'medium')) {
+      //    top: calc((map-get($burgerSize, 'medium') - $barWidth) / 2) + px;
+      //    left: calc((map-get($burgerSize, 'medium') - $barWidth) / 2) + px;
+      //}
+    }
+  }
+
+  &__bar {
+    width: $barWidth + px;
+    height: $barHeight + px;
+    display: block;
+    background: var(--white);
+  }
+
+  &__x {
+    > span {
+      @include defaultTransition('opacity, transform');
+      opacity: 0;
+      transform-origin: center;
+      transform: rotate(0);
+      position: absolute;
+      top: 50%;
+      margin-top: - calc($barHeight/2) + px;
+    }
+
+    .mstitb_navigation--opend & {
+      > span:first-child {
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+
+      > span:last-child {
+        opacity: 1;
+        transform: rotate(-45deg);
+      }
+
+    }
+  }
+
+  &__bars {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    @include defaultTransition('opacity');
+
+    .mstitb_navigation--opend & {
+      opacity: 0;
+    }
+  }
+}

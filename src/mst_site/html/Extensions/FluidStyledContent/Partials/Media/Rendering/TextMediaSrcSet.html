@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="small">{settings.imageSizeSmall}</f:variable>
+<f:variable name="medium">{settings.imageSizeMedium}</f:variable>
+<f:variable name="large">{settings.imageSizeLarge}</f:variable>
+<f:variable name="imagePercentage">{data.tx_jwmusterprojekt11_imagesizes / 100}</f:variable>
+<f:if condition="{data.colPos}==5">
+  <f:variable name="large">{settings.imageSizeHeader}</f:variable>
+</f:if>
+<f:comment>jw: {data.layout}:gallery with square thumbnails, no picture for svg</f:comment>
+<f:if condition="{data.layout}==200 || {file.extension}==svg">
+  <f:then>
+    <f:media class="image-embed-item" file="{file}" width="{dimensions.width}c" height="{dimensions.width}c"
+             alt="{file.alternative}" title="{file.title}" cropVariant="desktop"
+             loading="{settings.media.lazyLoading}"/>
+  </f:then>
+  <f:else>
+    <picture>
+      <source
+        srcset="{f:uri.image(image: file, width: '{small * usedColPosPercentage / data.imagecols * imagePercentage}', cropVariant: 'smartphone')}"
+        media="(max-width: {settings.imageSizeSmall}px)">
+      <source
+        srcset="{f:uri.image(image: file, width: '{medium * usedColPosPercentage / data.imagecols * imagePercentage}', cropVariant: 'tablet')}"
+        media="(max-width: {settings.imageSizeMedium}px)">
+      <source
+        srcset="{f:uri.image(image: file, width: '{large * usedColPosPercentage / data.imagecols * imagePercentage}', cropVariant: 'desktop')}">
+      <f:media class="image-embed-item" file="{file}" width="{dimensions.width}" alt="{file.alternative}"
+               title="{file.title}" cropVariant="desktop" loading="{settings.media.lazyLoading}"/>
+    </picture>
+  </f:else>
+</f:if>
+</html>

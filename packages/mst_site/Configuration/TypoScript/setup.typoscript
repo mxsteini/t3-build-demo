@@ -1,0 +1,21 @@
+# Global Setup
+@import 'EXT:mst_site/Configuration/TypoScript/Setup/*.typoscript'
+
+# Environment Context
+[applicationContext = Development]
+    @import 'EXT:mst_site/Configuration/TypoScript/_DEV/setup.typoscript'
+[end]
+
+[applicationContext = Stage ]
+    @import 'EXT:mst_site/Configuration/TypoScript/_STAGE/setup.typoscript'
+[end]
+
+
+[applicationContext = Production/Next ]
+    @import 'EXT:mst_site/Configuration/TypoScript/_NEXT/setup.typoscript'
+[end]
+
+[applicationContext = Production]
+    @import 'EXT:mst_site/Configuration/TypoScript/_PROD/setup.typoscript'
+[end]
+

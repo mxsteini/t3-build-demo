@@ -1,0 +1,18 @@
+options {
+    clearCache.pages = 1
+    pageTree.showPageIdWithTitle = 1
+}
+
+TCAdefaults.tt_content.filelink_size = 1
+
+##Color for background in page tree "Wichtige Infos"
+options.pageTree.backgroundColor {
+    28 = #ff9696
+}
+
+## If set, a button "Duplicate" will appear in TCEFORMs.
+## Note that it is possible to set this for single tables using options.showDuplicate.[tableName].
+## Any value set for a single table will override the default value set for saveDocView.
+options.showDuplicate = 1
+## Or only for tt_content
+# options.showDuplicate.tt_content = 1

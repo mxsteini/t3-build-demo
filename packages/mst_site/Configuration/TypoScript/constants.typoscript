@@ -1,0 +1,24 @@
+# Static Extension Templates
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+# Global Constants
+@import 'EXT:mst_site/Configuration/TypoScript/Constants/*.typoscript'
+# @import 'EXT:mst_site/Configuration/TypoScript/Constants/Extensions/*.typoscript'
+
+# Environment Context
+[applicationContext = Development]
+    @import 'EXT:mst_site/Configuration/TypoScript/_DEV/constants.typoscript'
+[end]
+
+[applicationContext = Stage ]
+    @import 'EXT:mst_site/Configuration/TypoScript/_STAGE/constants.typoscript'
+[end]
+
+
+[applicationContext = Production/Next ]
+    @import 'EXT:mst_site/Configuration/TypoScript/_NEXT/constants.typoscript'
+[end]
+
+[applicationContext = Production]
+    @import 'EXT:mst_site/Configuration/TypoScript/_PROD/constants.typoscript'
+[end]

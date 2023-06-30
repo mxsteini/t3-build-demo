@@ -1,0 +1,291 @@
+TCEMAIN {
+    ## assign new pages to group "all BE users", set access rights
+    permissions {
+        group = show, editcontent, edit, new, delete
+        groupid = 1
+        #everybody = show, editcontent, edit, new
+    }
+}
+
+#TCEMAIN end
+
+TCEFORM {
+    pages {
+        ##remove option to choose no backend layout
+        backend_layout.removeItems = -1
+        backend_layout_next_level.removeItems = -1
+    }
+
+    tt_content {
+        #################### CType #################
+        CType {
+            ##remove content types, for all users incl. Admins
+            #removeItems = text,textpic,div,header,table,bullets,menu_categorized_pages,menu_recently_updated,menu_related_pages
+        }
+
+        #################### headers #################
+        header_layout {
+            altLabels {
+                0 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:header1
+                1 =
+                2 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:header2
+                3 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:header3
+                4 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:header4
+                5 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:header5
+            }
+
+            removeItems = 1
+        }
+
+        #################### textmedia textpic image #################
+        ## remove width and height fields for responsive images
+        imagewidth.disabled = 1
+        imageheight.disabled = 1
+        ## max. 4 cols for images in content elements
+        imagecols.removeItems = 5,6,7,8
+        imageorient {
+            disableNoMatchingValueElement = 1
+            ##use only needed image positions. All: 0,1,2,8,9,10,17,18,25,26
+            types {
+                textmedia.keepItems = 0,8,17,18,25,26
+                textpic.keepItems = 0,8,17,18,25,26
+            }
+        }
+
+        #################### layout options #################
+        ## Layout-Feld erweitern
+        layout {
+            ## ggf. Eintraege entfernen
+            removeItems = 1,2,3
+            addItems {
+                100 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.100
+            }
+
+            ## layout option image gallery
+            types {
+                textmedia {
+                    addItems {
+                        200 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.200
+                    }
+                }
+
+                textpic {
+                    addItems {
+                        200 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.200
+                    }
+                }
+
+                image {
+                    addItems {
+                        200 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.200
+                    }
+                }
+
+
+                menu_abstract {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        251 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.251
+                    }
+                }
+
+                menu_pages {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        251 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.251
+                    }
+                }
+
+                menu_subpages {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        251 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.251
+                    }
+                }
+
+                cols_2 {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        300 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.300
+                    }
+                }
+
+                cols_3 {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        300 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.300
+                    }
+                }
+
+                cols_4 {
+                    removeItems = 1,2,3,100
+                    addItems {
+                        300 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.tt_content.layout.300
+                    }
+                }
+            }
+        }
+
+        #################### frame_class options #################
+        frame_class {
+            #label {
+            #default =
+            #de =
+            #}
+            #altLabels {
+            #  default =
+            #}
+            #removeItems = indent,indent-left,indent-right,none,ruler-before,ruler-after
+            addItems {
+                custom-30 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:tt_content.frameclass.custom-30
+                custom-31 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:tt_content.frameclass.custom-31
+            }
+
+            types {
+                shortcut {
+                    removeItems = custom-30, custom-31
+                }
+            }
+        }
+
+        #################### space options #################
+        space_before_class {
+            removeItems = extra-small,extra-large
+        }
+
+        space_after_class {
+            removeItems = extra-small,extra-large
+        }
+    }
+}
+
+#TCEFORM end
+
+TCAdefaults {
+    ##default: in allen Ansichten anzeigen
+    sys_file_reference.showinpreview = 1
+}
+
+mod {
+    #################### default value for new content element #################
+    wizards.newContentElement.wizardItems {
+        common.elements {
+            textmedia.tt_content_defValues {
+                imageorient = 0
+                imagecols = 1
+                ##default header for new content elements
+                header_layout = 2
+            }
+
+            textpic.tt_content_defValues {
+                imageorient = 0
+                imagecols = 1
+                ##default header for new content elements
+                header_layout = 2
+            }
+
+            image.tt_content_defValues {
+                imagecols = 1
+                ##default header for new content elements
+                header_layout = 2
+            }
+
+            list.tt_content_defValues {
+                ##default header for new content elements
+                header_layout = 2
+            }
+        }
+
+        menu.elements {
+            menu_abstract {
+                tt_content_defValues {
+                    sectionIndex = 0
+                    header_layout = 2
+                }
+            }
+
+            menu_pages {
+                tt_content_defValues {
+                    sectionIndex = 0
+                    header_layout = 2
+                }
+            }
+
+            menu_section {
+                tt_content_defValues {
+                    sectionIndex = 0
+                    header_layout = 2
+                }
+            }
+
+            menu_subpages {
+                tt_content_defValues {
+                    sectionIndex = 0
+                    header_layout = 2
+                }
+            }
+        }
+    }
+
+    #################### language #################
+    ##default flag
+    SHARED {
+        defaultLanguageFlag = de
+        defaultLanguageLabel = German
+    }
+}
+
+#################### Extension news #################
+## add an alternative layout for latest news
+tx_news.templateLayouts {
+    1 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.news.template.1
+    2 = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:mst_site.news.template.2
+}
+
+TCEMAIN {
+    ## Linkhandler for news
+    ## Quelle: https://usetypo3.com/linkhandler.html
+    linkHandler.tx_news {
+        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+        label = News
+        configuration {
+            table = tx_news_domain_model_news
+            storagePid = {$mst_site.newsStartingPoints}
+            hidePageTree = 0
+        }
+
+        scanAfter = page
+    }
+
+    ## Preview for news records
+    preview {
+        tx_news_domain_model_news {
+            # Available with latest 8.7+ only
+            # see https://forge.typo3.org/issues/78336
+            useCacheHash = 1
+            ##PageId single view
+            previewPageId = 4
+            useDefaultLanguageRecord = 0
+            fieldToParameterMap {
+                uid = tx_news_pi1[news_preview]
+            }
+
+            additionalGetParameters {
+                tx_news_pi1.controller = News
+                tx_news_pi1.action = detail
+            }
+        }
+    }
+}
+
+################## RTE: Configuration CKEditor #################
+## Standard-Konfiguration
+RTE.default.preset = default
+
+## Minimal-Konfiguration mit wenigen Schaltflaechen
+#RTE.default.preset = minimal
+
+## Umfangreiche Konfiguration mit vielen Schaltflaechen
+#RTE.default.preset = full
+
+###########################################################################

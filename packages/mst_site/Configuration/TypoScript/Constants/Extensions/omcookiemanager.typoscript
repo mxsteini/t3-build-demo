@@ -1,0 +1,10 @@
+@import 'EXT:om_cookie_manager/Configuration/TypoScript/constants.typoscript'
+
+# customcategory=plugin.tx_omcookiemanager_main=OM Cookie Manager
+plugin.tx_omcookiemanager_main {
+    view {
+        templateRootPath = EXT:mst_site/Resources/Private/Templates/OMCookieManager/
+        partialRootPath = EXT:mst_site/Resources/Private/Partials/OMCookieManager/
+        layoutRootPath = EXT:mst_site/Resources/Private/Layouts/OMCookieManager/
+    }
+}

@@ -1,0 +1,21 @@
+plugin.tx_monosite {
+    persistence {
+        storagePid =
+    }
+
+    # make all settings of page accessible in plugins
+    settings < page.10.settings
+    settings {
+        contentElements {
+            templateRootPaths {
+                10 = EXT:mst_site/Resources/Private/Templates/Content/Backend/
+            }
+            partialRootPaths {
+                10 = EXT:mst_site/Resources/Private/Partials/Content/Backend/
+            }
+            layoutRootPaths {
+                10 = EXT:mst_site/Resources/Private/Layouts/Content/Backend/
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+sections:
+  mst_site_basic_elements:
+    title: "Basic elements yaml"
+    elements:
+      mst_site_text:
+        title: Text
+        icon: "content-text"
+#        defaultValues:
+#          header: "Peter"
+        config:
+          columnsOverrides:
+            bodytext:
+              config:
+                type: text
+                enableRichtext: true
+          showItem:
+            -
+              title: "LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general"
+              fields:
+                - "--palette--;;general"
+                - "--palette--;;header"
+                - "subheader"
+                - "bodytext"
+            -
+              title: "LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance"
+              fields:
+                - "--palette--;;frames"
+            -
+              title: "LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access"
+              fields:
+                - "--palette--;;hidden"
+                - "--palette--;;access"

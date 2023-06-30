@@ -1,0 +1,256 @@
+page = PAGE
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+        # GTM
+        layoutRootPaths {
+            10 = EXT:mst_site/Resources/Private/Page/Layouts/
+        }
+
+        partialRootPaths {
+            10 = EXT:mst_site/Resources/Private/Page/Partials/
+        }
+
+        templateRootPaths {
+            10 = EXT:mst_site/Resources/Private/Page/Templates/
+        }
+
+        templateName.stdWrap.cObject = CASE
+        templateName.stdWrap.cObject {
+            key.field = doktype
+
+            101 = TEXT
+            101.value = Content
+
+            default = TEXT
+            default.value = Default
+        }
+
+        dataProcessing {
+            1 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            1 {
+                special.value = {$site.pid.main}
+                levels = 1
+                as = navigationMain
+            }
+
+            2 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            2 {
+                special = directory
+                special.value = {$site.pid.meta}
+                levels = 1
+                as = navigationMeta
+            }
+
+            8 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+            8 {
+                languages = {$site.languages}
+                as = languages
+            }
+        }
+
+        variables {
+            content0 < styles.content.get
+            content0.select.where = colPos = 0
+        }
+
+        settings {
+
+            pid {
+                home = {$site.pid.home}
+                contact = {$site.pid.contact}
+                newsletter {
+                    form = {$site.pid.newsletter.form}
+                }
+
+                privacy = {$site.pid.privacy}
+            }
+
+            pidList {
+
+            }
+
+            dateFormat = {$site.dateFormat}
+
+            privacyParagraph = {$site.privacyParagraph}
+
+        }
+    }
+
+    headerData {
+        # Todo: cleanup
+        5 = noCOA
+        5 {
+            10 = TEXT
+            10.field = seo_title
+            10.noTrimWrap = |<title>|</title>|
+            10.required = 1
+
+            20 = TEXT
+            20.field = title
+            # 20.noTrimWrap = |<title>| &vert; VeloRoad by Possehl</title>|
+            20.noTrimWrap = |<title>|</title>|
+            20.if.isFalse.field = seo_title
+        }
+
+        10 = TEXT
+        10.value (
+        )
+
+        # cookie consent script
+        20 = TEXT
+        20.value (
+        )
+
+    }
+
+    includeCSS {
+        site = EXT:mst_site/Resources/Public/Css/style.css
+    }
+
+    includeJSFooter {
+        site = EXT:mst_site/Resources/Public/Js/Main.js
+        site.async = 1
+    }
+
+    meta {
+        charset = UTF-8
+
+        viewport = width=device-width, initial-scale=1.0
+
+        msapplication-TileColor = #00A3E0
+
+        msapplication-config = /t3assets/browserconfig.xml
+
+        google-site-verification =
+
+        og:title {
+            field = og_title // seo_title // title
+            attribute = property
+        }
+
+        og:description {
+            field = og_description // description // tx_monoarticles_teaser // abstract
+            attribute = property
+        }
+
+        og:type = website
+        og:type.attribute = property
+
+        og:url {
+            typolink.parameter.data = TSFE:id
+            typolink.forceAbsoluteUrl = 1
+            typolink.returnLast = url
+            attribute = property
+        }
+
+        og:image {
+            attribute = property
+            stdWrap.cObject = COA
+            stdWrap.cObject {
+                if.isFalse.field = og_image
+                10 = FILES
+                10 {
+                    references {
+                        table = pages
+                        uid.data = uid
+                        fieldName = tx_monosite_image
+                    }
+
+                    begin = 0
+                    maxItems = 1
+                    renderObj = TEXT
+                    renderObj {
+                        stdWrap.typolink {
+                            parameter.stdWrap {
+                                cObject = IMG_RESOURCE
+                                cObject {
+                                    file {
+                                        import.data = file:current:uid
+                                        treatIdAsReference = 1
+                                    }
+                                }
+                            }
+
+                            returnLast = url
+                            forceAbsoluteUrl = 1
+                        }
+
+                        required = 1
+                    }
+                }
+
+                20 = TEXT
+                20 {
+                    stdWrap.typolink {
+                        parameter.stdWrap.cObject = IMG_RESOURCE
+                        parameter.stdWrap.cObject.file = /t3assets/images/design/temp/logo.png
+                        returnLast = url
+                        forceAbsoluteUrl = 1
+                    }
+
+                    if.isFalse.cObject = COA
+                    if.isFalse.cObject {
+                        10 = TEXT
+                        10.value = 1
+                        10.if.isTrue.field = og_image
+                        20 = TEXT
+                        20.value = 1
+                        20.if.isTrue.field = tx_monosite_image
+                    }
+
+                    required = 1
+                }
+            }
+
+            stdWrap.required = 1
+        }
+
+        og:image:width {
+            attribute = property
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+
+                data = TSFE:lastImgResourceInfo|0
+            }
+        }
+
+        og:image:height {
+            attribute = property
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+                data = TSFE:lastImgResourceInfo|1
+            }
+        }
+
+        og:image:type {
+            attribute = property
+            stdWrap.cObject = TEXT
+            stdWrap.cObject {
+                if.isTrue.data = TSFE:lastImgResourceInfo
+                data = TSFE:lastImgResourceInfo|2
+                stdWrap.wrap = image/|
+                required = 1
+            }
+
+            stdWrap.if.isTrue.data = TSFE:lastImgResourceInfo|2
+        }
+
+        twitter:image < .og:image
+        twitter:image.stdWrap.cObject.if.isFalse.field = twitter_image
+        twitter:image.stdWrap.cObject.20.if.isFalse.cObject.10.if.isTrue.field = twitter_image
+
+        twitter:card = summary
+        twitter:card.attribute = name
+
+        twitter:title {
+            field = twitter_title // seo_title // title
+            attribute = name
+        }
+
+        twitter:description {
+            field = twitter_description // description // tx_monosite_teaser // abstract
+            attribute = name
+        }
+    }
+}

@@ -1,0 +1,84 @@
+mod.web_layout.BackendLayouts {
+    footer-3col {
+        title = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:belayout-footer
+        icon = EXT:mst_site/Resources/Public/Icons/Backendlayouts/footer-3col.png
+        config {
+            backend_layout {
+                colCount = 3
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-left33
+                                colPos = 10
+                            }
+
+                            2 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-middle33
+                                colPos = 11
+                            }
+
+                            3 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-right33
+                                colPos = 12
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer-2col {
+        title = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:belayout-footer-2col
+        icon = EXT:mst_site/Resources/Public/Icons/Backendlayouts/footer-2col.png
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-left50
+                                colPos = 10
+                            }
+
+                            2 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-right50
+                                colPos = 11
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer-1col {
+        title = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:belayout-footer-1col
+        icon = EXT:mst_site/Resources/Public/Icons/Backendlayouts/footer-1col.png
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:mst_site/Resources/Private/Language/locallang.xlf:col-content-main
+                                colPos = 10
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    standard >
+    1col >
+    2col >
+    3col >
+}

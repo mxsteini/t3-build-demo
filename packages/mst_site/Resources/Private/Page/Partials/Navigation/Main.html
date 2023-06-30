@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:asset.css identifier="mst_site/Page/Partials/Navigation/Main" href="EXT:mst_site/Resources/Public/Css/Page/Partials/Navigation/Main.css"></f:asset.css>
+<nav class="mstib_nav-main">
+  <ul>
+    
+    
+      <f:for each="{navigationMain}" as="item">
+        <li><a href="{item.link}">{item.title}</a></li>
+      </f:for>
+    
+  </ul>
+</nav>
+
+</html>

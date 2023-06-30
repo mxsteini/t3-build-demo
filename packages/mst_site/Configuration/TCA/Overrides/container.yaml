@@ -1,0 +1,30 @@
+mst_site_col50-50:
+  label: '2 Spalten Container'
+  description: '2 Spalten gleiche Breite'
+  iconIdentifier: content-container-columns-2
+  config:
+    - [ { name: Links, colPos: 1000 }, { name: Rechts, colPos: 1001 } ]
+
+mst_site_col33-33-33:
+  label: '3 Spalten Container 33 - 33 - 33'
+  description: '3 Spalten Container 33 - 33 - 33'
+  iconIdentifier: content-container-columns-3
+  config: [[{ name: Links, colPos: 1000 }, { name: Mitte, colPos: 1001 }, { name: Rechts, colPos: 1002 }]]
+
+mst_site_accordeon:
+  label: Accordeon
+  description: accordeon
+  iconIdentifier: content-accordion
+  config:
+    -
+      -
+        name: Links,
+        colPos: 1000
+        allowed:
+          CType: mst_site_text, textMedia
+
+mst_site_slider:
+  label: Slider
+  description: slider
+  iconIdentifier: content-container-columns-1
+  config: [[{ name: Mitte, colPos: 1000 }]]

@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="grid height-100">
+  <f:for each="{menu}" as="page">
+    <div class="col-3_md-6_xs-12">
+      <f:comment>251: Page preview 4 columns with image</f:comment>
+      <div class="wrapper-card img-enlarge">
+        <a href="{page.link}" {f:if(condition:="" page.target,="" then:'="" target="\&quot;{page.target}\&quot;')}" title="{page.title}">
+        <f:if condition="{page.files}">
+          <f:for each="{page.files}" as="file" iteration="iterator">
+            <f:if condition="{iterator.isFirst}">
+              <figure>
+                <picture>
+                  <source srcset="{f:uri.image(image: file, width: '{settings.imageSizeSmall}', cropVariant: 'smartphone')}" media="(max-width: {settings.imageSizeSmall}px)">
+                  <source srcset="{f:uri.image(image: file, width: '{settings.imageSizeSmall}', cropVariant: 'tablet')}" media="(max-width: {settings.imageSizeMedium}px)">
+                  <source srcset="{f:uri.image(image: file, width: '{settings.imageSizeSmall}', cropVariant: 'desktop')}">
+                  <f:media class="image-embed-item" file="{file}" width="{settings.imageSizeSmall}" alt="{file.alternative}" title="{file.title}" cropVariant="desktop" loading="{settings.media.lazyLoading}"></f:media>
+                </picture>
+                <f:render partial="MetaInfos" arguments="{file: file}"></f:render>
+              </figure>
+            </f:if>
+          </f:for>
+        </f:if>
+        <div class="card-text">
+          <h3>{page.title}</h3>
+          <f:if condition="{data.CType}=='menu_abstract' && {page.data.abstract}">
+            <p>
+              <f:format.nl2br>{page.data.abstract}</f:format.nl2br>
+            </p>
+          </f:if>
+        </div>
+        </a>
+      </div>
+    </div>
+  </f:for>
+</div>
+
+</html>
+
+

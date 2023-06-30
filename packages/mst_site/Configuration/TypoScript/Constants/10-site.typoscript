@@ -1,0 +1,41 @@
+site {
+    privacyParagraph = 2
+    settings {
+        favicon_default = EXT:mst_site/Resources/Public/Images/Logo_MS_ITB.svg
+        favicon_wide = EXT:mst_site/Resources/Public/Images/Logo_MS_ITB.svg
+        favicon_ico = EXT:mst_site/Resources/Public/Images/Logo_MS_ITB.svg
+    }
+    links {
+
+    }
+
+    pid {
+        home = 1
+
+        footer =
+        news =
+        search =
+        contact = 7
+        globalLocations =
+        imprint = 8
+        privacy = 9
+        cookies = 12
+        cookieSetting = 10
+
+        meta = 3
+        footer =
+    }
+
+    pidList {
+        navigation {
+            meta = {$site.pid.meta}
+        }
+    }
+    languages = 0,1,2
+    doktype {
+        default = 1
+        content = 101
+    }
+
+    dateFormat = %e. %B %Y
+}

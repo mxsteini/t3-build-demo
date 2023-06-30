@@ -1,0 +1,139 @@
+html {
+  font-family: 'Red Hat Text', Arial, sans-serif;
+  letter-spacing: 0;
+  color: var(--text);
+  line-height: 26px;
+  font-size: 16px;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 18px;
+  }
+}
+
+.display-1 {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 66px;
+  color: white;
+
+  @media (min-width: map-get($breakpoints, 'medium')) {
+    font-size: 95px;
+    line-height: 100px;
+  }
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 100px;
+    line-height: 140px;
+    font-weight: bold;
+  }
+}
+
+.h1, h1 {
+  font-family: 'Red Hat Text', Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 46px;
+  letter-spacing: 0.8px;
+  color: var(--red);
+  margin: 0;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 66px;
+  }
+}
+
+.h2, h2 {
+  font-family: 'Red Hat Text', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: var(--red);
+  margin: 0;
+  margin-bottom: 10px;
+
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 40px;
+    line-height: 40px;
+
+  }
+}
+
+.h3, h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 22px;
+  color: var(--black);
+  text-transform: uppercase;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+}
+
+.h4, h4 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+  }
+}
+
+
+p, .p {
+  line-height: 22px;
+  font-size: 16px;
+  letter-spacing: 0;
+  color: #24272A;
+  font-weight: 500;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    line-height: 1.4;
+    font-size: 2vh;
+  }
+
+  @media (min-height: 810px) {
+    font-size: 18px;
+  }
+
+  @media (max-height: 660px) {
+    font-size: 16px;
+  }
+
+  &--small {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &--smallbold {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  &--highlight {
+    font-size: 22px;
+    line-height: 32px;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      font-size: 26px;
+      line-height: 37px;
+    }
+  }
+}
+
+a:visited,
+a:active,
+a {
+  color: var(--foreground);
+  @include defaultTransition('color');
+
+  &:hover {
+    color: var(--orange);
+  }
+}
+
+

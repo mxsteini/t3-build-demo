@@ -1,0 +1,95 @@
+addIpLocationToBrowserLanguage: ''
+allowAllPaths: false
+base: 'https://www.t3-build-demo.com'
+baseVariants:
+  -
+    base: 'https://t3builddemo.ddev.site/'
+    condition: 'getenv("HTTP_HOST") == "t3builddemo.ddev.site"'
+  -
+    base: 'https://localhost/'
+    condition: 'getenv("HTTP_HOST") == "localhost"'
+  -
+    base: 'https://current.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "current.t3-build-demo.com"'
+  -
+    base: 'https://previous.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "previous.t3-build-demo.com"'
+  -
+    base: 'https://stage-next.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "stage-next.t3-build-demo.com"'
+  -
+    base: 'https://stage-current.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "stage-current.t3-build-demo.com"'
+  -
+    base: 'https://stage-previous.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "stage-previous.t3-build-demo.com"'
+  -
+    base: 'https://stage-next.t3-build-demo.com/'
+    condition: 'getenv("HTTP_HOST") == "stage-next.t3-build-demo.com"'
+disableRedirectWithBackendSession: false
+disableStaticFileCache: true
+enableLanguageDetection: true
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=2'
+  -
+    errorCode: 0
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=2'
+fallbackDetectionLanguage: 0
+forwardRedirectParameters: gclid
+languageDetectionMaxMindAccountId: ''
+languageDetectionMaxMindDatabasePath: ''
+languageDetectionMaxMindLicenseKey: ''
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: EN
+    hreflang: en-us
+    direction: ltr
+    flag: us
+    websiteTitle: ''
+    excludeFromLanguageDetection: false
+  -
+    title: Deutsch
+    enabled: true
+    base: /de/
+    typo3Language: de
+    locale: de_DE.utf8
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: DE
+    hreflang: de-DE
+    direction: ''
+    fallbackType: fallback
+    fallbacks: '0'
+    flag: de
+    excludeFromLanguageDetection: false
+    languageId: 1
+  -
+    title: Dutch
+    enabled: true
+    base: /nl/
+    typo3Language: nl
+    locale: nl_NL.utf8
+    iso-639-1: nl
+    websiteTitle: ''
+    navigationTitle: NL
+    hreflang: nl-NL
+    direction: ''
+    fallbackType: fallback
+    fallbacks: '0'
+    flag: nl
+    excludeFromLanguageDetection: false
+    languageId: 2
+redirectHttpStatusCode: 302
+rootPageId: 1
+websiteTitle: ''

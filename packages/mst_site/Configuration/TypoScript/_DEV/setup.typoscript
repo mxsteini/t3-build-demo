@@ -1,0 +1,18 @@
+# just for development
+config {
+    contentObjectExceptionHandler = 0
+    no_cache = 1
+}
+
+page {
+    headerData {
+        # Placeholder for cookie consent snippet
+        # 15 = TEXT
+        # 15.value (
+
+        # )
+
+        # TODO: Add analytics code
+        # 20.value = <script src="//assets.adobedtm.com/e0befe1bc3f8/8b1738f43f6a/launch-42c67a5a5a16-development.js" async></script>
+    }
+}

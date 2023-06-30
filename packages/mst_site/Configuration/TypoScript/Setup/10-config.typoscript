@@ -1,0 +1,65 @@
+config {
+    absRefPrefix = auto
+    disableBodyTag = 0
+
+    # we're setting the page title manually
+
+    compressCss = 0
+    concatenateCss = 0
+    compressJs = 0
+    concatenateJs = 0
+
+    pageTitleFirst = 1
+    linkVars = L
+    prefixLocalAnchors = all
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    removeDefaultJS = 0
+    removeDefaultCss = 0
+    inlineStyle2TempFile = 1
+    admPanel = 0
+    debug = 0
+    cache_period = 86400
+    sendCacheHeaders = 1
+    intTarget = _self
+    extTarget = _blank
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 0
+    index_metatags = 0
+    headerComment =
+    meaningfulTempFilePrefix = 100
+
+    spamProtectEmailAddresses = -2
+    spamProtectEmailAddresses_atSubst = @~@
+
+    // Disable Image Upscaling
+    noScaleUp = 1
+
+    additionalHeaders {
+        10.header = strict-transport-security: max-age=31536000; includeSubDomains
+        20.header = X-Frame-Options: SAMEORIGIN
+        30.header = X-XSS-Protection: 1; mode=block
+        40.header = X-Content-Type-Options: nosniff
+        50.header = Referrer-Policy: strict-origin
+        60.header = Content-Security-Policy: script-src 'unsafe-inline' 'unsafe-eval' 'self' *.ytimg.com *.googletagmanager.com *.youtube-nocookie.com *.google-analytics.com *.googleapis.com challenges.cloudflare.com hcaptcha.com; base-uri 'self';
+        70.header = X-Content-Security-Policy: script-src 'unsafe-inline' 'unsafe-eval' 'self' *.ytimg.com *.googletagmanager.com *.youtube-nocookie.com *.google-analytics.com *.googleapis.com challenges.cloudflare.com hcaptcha.com; base-uri 'self'; options unsafe-inline unsafe-eval
+        80.header = X-WebKit-CSP: script-src 'unsafe-inline' 'unsafe-eval' 'self' *.ytimg.com *.googletagmanager.com *.youtube-nocookie.com *.google-analytics.com *.googleapis.com challenges.cloudflare.com hcaptcha.com; base-uri 'self';
+        90.header = X-CREATOR: www.monobloc.de
+        95.header = Content-Security-Policy: script-src-elem 'unsafe-inline' 'unsafe-eval' 'self' *.ytimg.com *.googletagmanager.com *.youtube-nocookie.com *.youtube.com *.google-analytics.com *.googleapis.com challenges.cloudflare.com hcaptcha.com
+#        100.header = Permissions-Policy: fullscreen=(self ;
+    }
+
+    pageTitleProviders {
+        record {
+            provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
+        }
+
+        seo {
+            provider = TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider
+        }
+    }
+    pageTitleSeparator = |
+    pageTitleSeparator.noTrimWrap = | | |
+}

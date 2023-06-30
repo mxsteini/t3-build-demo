@@ -1,0 +1,18 @@
+.DS_Store
+.idea
+.vscode
+
+/public/*
+!/public/.htaccess*
+
+node_modules/
+var
+vendor
+.env
+bin
+# for DB dumps
+/*.csv
+/*.sql
+/dump
+/*.zip
+/*.zip.httpheaders

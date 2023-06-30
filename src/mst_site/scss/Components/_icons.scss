@@ -1,0 +1,48 @@
+.mstitb_handle {
+  display: inline-flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+
+  * {
+    display: block;
+  }
+
+  &__icon {
+    @include size(40px);
+    @include defaultTransition('transform');
+    display: inline-block;
+    position: relative;
+  }
+
+  &__circle {
+    @include size(40px);
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  &__bar {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+
+    &--v {
+      margin-top: -2px;
+      margin-left: -12px;
+      width: 24px;
+      height: 4px;
+      border-radius: 10px;
+    }
+
+    &--h {
+      margin-top: -12px;
+      margin-left: -2px;
+      width: 4px;
+      height: 24px;
+      border-radius: 10px;
+    }
+  }
+}

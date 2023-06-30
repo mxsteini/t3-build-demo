@@ -1,0 +1,16 @@
+tt_content {
+    mst_site_col50-50 =< lib.containerElement
+    mst_site_col50-50 {
+        templateName = Container/Col50-50
+    }
+
+    mst_site_col33-33-33 =< lib.containerElement
+    mst_site_col33-33-33 {
+        templateName = Container/Col33-33-33
+    }
+
+    mst_site_accordeon =< lib.containerElement
+    mst_site_accordeon {
+        templateName = Container/Accordeon
+    }
+}

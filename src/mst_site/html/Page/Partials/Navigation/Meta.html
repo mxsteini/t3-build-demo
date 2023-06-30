@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<nav class="mstib_nav-meta">
+  <ul>
+    <standalone>
+      <li><a href="#">Imprint</a></li>
+      <li><a href="#">Contact</a></li>
+    </standalone>
+    <fluid>
+      <f:for each="{navigationMeta}" as="item">
+        <li><a href="{item.link}">{item.title}</a></li>
+      </f:for>
+    </fluid>
+  </ul>
+</nav>
+<style type="text/scss">
+  nav.mstib_nav-meta {
+    ul {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+</style>
+</html>

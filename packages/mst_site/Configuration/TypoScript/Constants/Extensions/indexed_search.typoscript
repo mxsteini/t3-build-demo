@@ -1,0 +1,14 @@
+@import 'EXT:indexed_search/Configuration/TypoScript/constants.typoscript'
+plugin.tx_indexedsearch {
+    view {
+        templateRootPath = EXT:mst_site/Resources/Private/Templates/indexed_search/
+        partialRootPath = EXT:mst_site/Resources/Private/Partials/indexed_search/
+        layoutRootPath = EXT:mst_site/Resources/Private/Layouts/indexed_search/
+    }
+    settings {
+        # cat=plugin.tx_indexedsearch/settings; type=integer; label=Set the target page where search results are shown
+        targetPid = {$site.pid.search}
+        # cat=plugin.tx_indexedsearch/settings; type=string; label=A list of integer which should be root-pages to search from
+        rootPidList = {$site.pid.home}
+    }
+}

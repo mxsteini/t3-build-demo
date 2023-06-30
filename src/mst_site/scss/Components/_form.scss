@@ -1,0 +1,251 @@
+.mstitb_form {
+  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 23px;
+  align-self: center;
+  @media (min-width: map-get($breakpoints, 'large')) {
+    max-width: 100%;
+  }
+
+  .cr_form-inputgroup {
+    width: 100%;
+    display: flex;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      width: 50%;
+    }
+
+    input {
+      height: 40px;
+      @media (min-width: map-get($breakpoints, 'large')) {
+        height: 60px;
+      }
+    }
+  }
+
+  .cr_form-block {
+    padding: 0;
+  }
+
+  &__cta {
+    display: flex;
+    width: 100%;
+    color: var(--accent);
+    font-weight: bold;
+    align-items: center;
+    margin-bottom: 10px;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      width: auto;
+      font-size: 24px;
+      height: 60px;
+    }
+  }
+
+  .cr_form-component--submit {
+    width: 100%;
+    justify-content: start;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    display: none;
+
+    @media (min-width: map-get($breakpoints, 'large')) {
+      height: 60px;
+      width: auto;
+      justify-content: flex-end;
+      display: block;
+
+    }
+  }
+
+  .newsletter-mobil {
+    display: block;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      display: none;
+    }
+  }
+
+  .newsletter {
+    display: none;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      display: block;
+    }
+  }
+
+  .arrow {
+    display: none;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      display: block;
+    }
+  }
+
+  img {
+    width: 40px;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      width: 60px;
+    }
+    margin-left: 10px;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__wrapper-mail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+
+    @media (min-width: map-get($breakpoints, 'large')) {
+      flex-direction: row;
+      justify-content: space-between;
+      height: 60px;
+
+    }
+  }
+
+  button {
+    font-weight: bold;
+    background-color: transparent;
+    color: var(--accent);
+    gap: 0px;
+    @media (min-width: map-get($breakpoints, 'large')) {
+      font-size: 24px;
+    }
+  }
+
+  width: 100%;
+
+  input, textarea, button {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+  }
+
+  input, textarea {
+    border-radius: 2px;
+    background: white;
+    position: relative;
+    z-index: 2;
+    padding: 9px 10px 2px 10px;
+    font-family: "Red Hat Text", Arial, sans-serif;;
+    font-size: 16px;
+    width: 100%;
+
+    &::placeholder {
+      opacity: 1;
+    }
+
+    &:focus {
+      border: 1px solid;
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 2px var(--accent);
+    }
+  }
+
+
+  label {
+    color: #2c2c2c;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    font-family: "Red Hat Text", Arial, sans-serif;;
+    font-size: 16px;
+    line-height: 16px;
+    transform-origin: 0 0;
+    @include defaultTransition('transform')
+  }
+
+  input {
+    height: 50px;
+
+  }
+
+  textarea {
+    padding-top: 20px;
+    height: 400px;
+  }
+
+  &group {
+    position: relative;
+    margin-bottom: 10px;
+
+    > .mstitb_form-control:focus ~ label,
+    > .mstitb_form-control:not(:placeholder-shown) ~ label {
+      transform: scale(0.7) translateY(-4px);
+    }
+
+    &__validation-result {
+      font-site: 12px;
+      display: none;
+
+      &--valid {
+        color: green;
+
+        .mstitb_formgroup--has-success & {
+          display: block;
+        }
+      }
+
+      &--error {
+        color: var(--accent);
+
+        .mstitb_formgroup--has-error & {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    & .mstitb_button {
+      flex-shrink: 0;
+
+      &__next {
+        margin-left: auto;
+        justify-self: flex-end;
+      }
+    }
+  }
+
+  .cr_button {
+
+    gap: 0px;
+
+    height: fit-content;
+
+    span {
+      text-decoration: none;
+      position: relative;
+      transition: transform .1s ease-in-out;
+    }
+
+    span::before, span::after {
+      content: "";
+      position: absolute;
+      background-color: var(--accent);
+      transition: transform .5s;
+    }
+
+    span::after {
+      left: 0;
+      width: 100%;
+      height: 3px;
+      bottom: -1px;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    span:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+
+}

@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  MST\MstSite\:
+    resource: '../Classes/*'
+
+  MST\MstSite\Listener\PageTsConfig:
+    tags:
+      - name: event.listener
+        identifier: 'tx-mstsite-page-ts-config'
+        event: TYPO3\CMS\Core\TypoScript\IncludeTree\Event\ModifyLoadedPageTsConfigEvent

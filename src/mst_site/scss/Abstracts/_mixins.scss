@@ -1,0 +1,36 @@
+@mixin dash($color, $marginTop: 13) {
+  position: relative;
+  margin-top: #{$marginTop + 1}px !important;
+  &:before {
+    position: absolute;
+    top: -#{$marginTop}px;
+    content: ' ';
+    display: block;
+    height: 1px;
+    width: 20px;
+    background-color: #{$color};
+  }
+}
+
+@mixin defaultTransition($propertyList, $speed: 0.4s) {
+  transition-duration: $speed;
+  transition-property: #{$propertyList};
+  transition-timing-function: ease-in-out;
+}
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin marginTop() {
+  margin-top: 60px;
+
+  @media (min-width: map-get($breakpoints, 'medium')) {
+    margin-top: 80px;
+  }
+
+  @media (min-width: map-get($breakpoints, 'medium')) {
+    margin-top: 100px;
+  }
+}

@@ -1,0 +1,24 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<nav class="mstib_nav-main">
+  <ul>
+    <standalone>
+      <li><a href="#">First Item</a></li>
+      <li><a href="#">Second Item</a></li>
+      <li><a href="#">Third Item</a></li>
+    </standalone>
+    <fluid>
+      <f:for each="{navigationMain}" as="item">
+        <li><a href="{item.link}">{item.title}</a></li>
+      </f:for>
+    </fluid>
+  </ul>
+</nav>
+<style type="text/scss">
+  nav.mstib_nav-main {
+    ul {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+</style>
+</html>

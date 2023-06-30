@@ -1,0 +1,21 @@
+@import 'EXT:om_cookie_manager/Configuration/TypoScript/setup.typoscript'
+plugin.tx_omcookiemanager_main {
+    view {
+        templateRootPaths.0 = EXT:om_cookie_manager/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_omcookiemanager_main.view.templateRootPath}
+        partialRootPaths.0 = EXT:om_cookie_manager/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_omcookiemanager_main.view.partialRootPath}
+        layoutRootPaths.0 = EXT:om_cookie_manager/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_omcookiemanager_main.view.layoutRootPath}
+    }
+
+    persistence {
+        storagePid = {$site.pid.cookies}
+    }
+
+    settings {
+        css >
+        privacyPageId = {$site.pid.privacy}
+        imprintPageId = {$site.pid.imprint}
+    }
+}

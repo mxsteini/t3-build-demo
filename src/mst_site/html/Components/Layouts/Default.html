@@ -1,0 +1,58 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:variable name="useSection" value="yes"/>
+
+<f:if condition="{data.colPos} > 10">
+  <f:variable name="useSection" value="no"/>
+</f:if>
+
+<f:if condition="{data.container}">
+  <f:variable name="useSection" value="no"/>
+</f:if>
+
+
+<f:switch expression="{data.CType}">
+  <f:case value="uploads">
+    <f:variable name="componentClass" value="component-downloads"/>
+    <f:variable name="wrapperClass" value="downloads-wrapper"/>
+    <f:variable name="contentClass" value="col-lg-6 col-md-9 col-12 col-download"/>
+  </f:case>
+</f:switch>
+
+
+<f:spaceless>
+  <f:if condition="{useSection} == 'yes'">
+    <f:then>
+      <section class="mstitb_section mstitb_section--layout-{data.layout} mstitb_section--ctype-{data.CType} mstitb_section
+                    {f:if(condition: '{data.frame_class} != empty', then: ' mstitb_section--frame-{data.frame_class} ')}
+                    {f:if(condition: '{data.layout} > 0', then: ' mstitb_section--size-{data.layout} ')}">
+        <div class="mstitb_container">
+          <div class="mstitb_row">
+            <div class="mstitb_col">
+              <div id="c{data.uid}">
+                <f:render section="Header" optional="true">
+                  <header class="section__head">
+                    <f:render partial="Header/All" arguments="{_all}"/>
+                  </header>
+                </f:render>
+                <f:render section="Main" optional="true"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </f:then>
+    <f:else>
+      <div id="c{data.uid}">
+        <f:if condition="{data._LOCALIZED_UID}">
+          <div id="c{data._LOCALIZED_UID}"></div>
+        </f:if>
+        <f:render section="Header" optional="true">
+          <f:render partial="Header/All" arguments="{_all}"/>
+        </f:render>
+        <f:render section="Main" optional="true"/>
+      </div>
+    </f:else>
+</f:spaceless>
+
+</html>

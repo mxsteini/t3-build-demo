@@ -1,0 +1,17 @@
+{
+	"name": "t3builddemo",
+	"version": "1",
+	"description": "t3-build demo",
+	"author": "Michael Stein",
+	"private": true,
+	"scripts": {
+		"start": "npx t3-build watch",
+		"standalone": "npx t3-build watch -s",
+		"build": "npx t3-build build"
+	},
+	"dependencies": {
+		"@alpinejs/collapse": "^3.12.2",
+		"alpinejs": "^3.12.2",
+		"t3-build": "^1.1.11"
+	}
+}

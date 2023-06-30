@@ -1,0 +1,15 @@
+plugin.tx_form.settings.yamlConfigurations {
+    1499086547 = EXT:mst_site/Configuration/Extensions/form/CustomFormSetup.yaml
+}
+
+module.tx_form.settings.yamlConfigurations {
+    1499086547 = EXT:mst_site/Configuration/Extensions/form/CustomFormSetup.yaml
+}
+
+plugin.tx_form {
+    view {
+        templateRootPaths.40 = EXT:mst_site/Resources/Private/Templates/Form/
+        partialRootPaths.40 = EXT:mst_site/Resources/Private/Partials/Form/
+        layoutRootPaths.40 = EXT:mst_site//Resources/Private/Layouts/Form/
+    }
+}

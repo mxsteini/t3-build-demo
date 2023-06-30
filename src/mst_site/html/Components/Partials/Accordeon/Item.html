@@ -1,0 +1,24 @@
+<html>
+
+<fluid>
+  <div class="accordeon-item" x-data="{open: false}">
+    <div class="accordeon-item accordeon-item__header" @click="open = !open">
+      Accordeon-element
+    </div>
+    <div class="accordeon-item accordeon-item__body" x-show="open" x-collapse>
+      {record.renderedContent->f:format.raw()}
+    </div>
+  </div>
+</fluid>
+
+<standalone>
+  <div class="accordeon-item" x-data="{open: $persist(false)}">
+    <div class="accordeon-item accordeon-item__header" @click="open = !open">
+      Accordeon-element
+    </div>
+    <div class="accordeon-item accordeon-item__body" x-show="open" x-collapse>
+      <include src="includes/Text1.html"></include>
+    </div>
+  </div>
+</standalone>
+</html>

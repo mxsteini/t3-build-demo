@@ -1,0 +1,72 @@
+tt_content {
+    html >
+    html = FLUIDTEMPLATE
+    html {
+        layoutRootPaths.20 =   EXT:mst_site/Resources/Private/Components/Layouts/
+        partialRootPaths.20 =  EXT:mst_site/Resources/Private/Components/Partials/
+        templateRootPaths.20 = EXT:mst_site/Resources/Private/Components/Templates/
+        template = TEXT
+        template.field = bodytext
+    }
+
+    mst_site_text =< lib.contentElement
+    mst_site_text {
+        templateName = Text
+    }
+
+    mst_site_image =< lib.contentElement
+    mst_site_image {
+        templateName = Image
+    }
+
+    mst_site_textpic =< lib.contentElement
+    mst_site_textpic {
+        templateName = Textpic
+    }
+
+    mst_site_hero =< lib.contentElement
+    mst_site_hero {
+        templateName = Hero
+    }
+
+    mst_site_banner =< lib.contentElement
+    mst_site_banner {
+        templateName = Banner
+    }
+
+    mst_site_card =< lib.contentElement
+    mst_site_card {
+        templateName = Card
+    }
+
+    mst_site_contact =< lib.contentElement
+    mst_site_contact {
+        templateName = Contact
+    }
+
+    mst_site_header =< lib.contentElement
+    mst_site_header {
+        templateName = Header
+    }
+
+    mst_site_link =< lib.contentElement
+    mst_site_link {
+        templateName = Link
+    }
+
+    mst_site_download =< lib.contentElement
+    mst_site_download {
+        templateName = Download
+    }
+
+    mst_site_map =< lib.contentElement
+    mst_site_map {
+        templateName = Map
+    }
+
+    mst_site_tab =< lib.contentElement
+    mst_site_tab {
+        templateName = Tab
+    }
+
+}

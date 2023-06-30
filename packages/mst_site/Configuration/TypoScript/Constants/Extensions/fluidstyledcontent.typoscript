@@ -1,0 +1,20 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+styles.templates {
+    # cat=content/templates/b1; type=string; label= Path of Fluid Templates for all defined content elements
+    templateRootPath = EXT:mst_site/Resources/Private/Templates/FluidStyledContent/
+    # cat=content/templates/b2; type=string; label= Path of Fluid Partials for all defined content elements
+    partialRootPath = EXT:mst_site/Resources/Private/Partials/FluidStyledContent/
+    # cat=content/templates/b3; type=string; label= Path of Fluid Layouts for all defined content elements
+    layoutRootPath = EXT:mst_site/Resources/Private/Layouts/FluidStyledContent/
+}
+
+styles.content {
+    textmedia {
+        # cat=content/cTextmedia/c4; type=boolean; label= Lightbox click-enlarge rendering: Whether media elements with click-enlarge checked should be rendered lightbox-compliant
+        linkWrap.lightboxEnabled = 1
+        # cat=content/cTextmedia/c5; type=string; label= Lightbox CSS class: Which CSS class to use for lightbox links (only applicable if lightbox rendering is enabled)
+        linkWrap.lightboxCssClass = mst_js_lightbox__open mst_js_enlarge_on_click
+        # cat=content/cTextmedia/c6; type=string; label= Lightbox rel="" attribute: Which rel="" attribute to use for lightbox links (only applicable if lightbox rendering is enabled)
+    }
+}

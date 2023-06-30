@@ -1,0 +1,16 @@
+{
+	"name": "mst/mst-site",
+	"description": "This extension contains the complete site configuration.",
+	"type": "typo3-cms-extension",
+	"license": "proprietary",
+	"autoload": {
+		"psr-4": {
+			"MST\\MstSite\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "mst_site"
+		}
+	}
+}

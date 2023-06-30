@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:layout name="General"/>
+<!--
+	=====================
+		Templates/News/List.html
+-->
+<f:section name="content">
+  <!--TYPO3SEARCH_end-->
+  <f:if condition="{news}">
+    <f:then>
+      <f:comment>jw: added class for settings.templatelayout</f:comment>
+      <div class="news-list-view layout-{settings.templateLayout}">
+        <f:if condition="{settings.hidePagination}">
+          <f:then>
+            <f:for each="{news}" as="newsItem" iteration="iterator">
+              <f:comment>jw: new section, see bottom</f:comment>
+              <f:render section="partialselection" arguments="{_all}"/>
+            </f:for>
+          </f:then>
+          <f:else>
+            <f:if condition="{settings.list.paginate.insertAbove}">
+              <f:render partial="List/Pagination"
+                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}"/>
+            </f:if>
+            <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+              <f:render section="partialselection" arguments="{_all}"/>
+            </f:for>
+            <f:if condition="{settings.list.paginate.insertBelow}">
+              <f:render partial="List/Pagination"
+                        arguments="{pagination: pagination.pagination, paginator: pagination.paginator}"/>
+            </f:if>
+          </f:else>
+        </f:if>
+      </div>
+    </f:then>
+    <f:else>
+      <div class="no-news-found">
+        <f:translate key="list_nonewsfound"/>
+      </div>
+    </f:else>
+  </f:if>
+  <!--TYPO3SEARCH_begin-->
+</f:section>
+<f:comment>jw: option to change templates</f:comment>
+<f:section name="partialselection">
+  <f:switch expression="{settings.templateLayout}">
+    <f:case value="1">
+      <f:render partial="List/LatestItem" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+    </f:case>
+    <f:case value="2">
+      <f:render partial="List/CardItem" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+    </f:case>
+    <f:defaultCase>
+      <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+    </f:defaultCase>
+  </f:switch>
+</f:section>
+</html>

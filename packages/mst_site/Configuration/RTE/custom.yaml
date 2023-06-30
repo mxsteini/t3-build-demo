@@ -1,0 +1,105 @@
+# Load default processing options
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    contentsCss: "EXT:mst_site/Resources/Public/Css/RTE/editor.css"
+    format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+    toolbarGroups:
+      - { name: styles, groups: [ styles, format ] }
+      - { name: basicstyles, groups: [ basicstyles ] }
+      - { name: links, groups: [ links ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align ] }
+      - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+      - { name: editing, groups: [ spellchecker ] }
+      - { name: insert, groups: [ insert ] }
+      - { name: tools, groups: [ table, specialchar, insertcharacters ] }
+      - { name: document, groups: [ mode ] }
+
+    stylesSet:
+      - { name: "Large Paragraph", element: "p", attributes: { class: "fontsize3" } }
+      - { name: "Icon Markierung", element: "p", attributes: { class: "rte-icon fa-map-marker-alt" } }
+      - { name: "Icon Person", element: "p", attributes: { class: "rte-icon fa-user-alt" } }
+
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+
+    indentClasses:
+      - indent-left
+
+    extraPlugins:
+      - justify
+      - indentblock
+      - autolink
+      - codesnippet
+      - wordcount
+
+    codeSnippet_theme: 'obsidian'
+    codeSnippet_languages:
+      bash: 'Bash'
+      html: 'HTML'
+      javascript: 'JavaScript'
+      php: 'PHP'
+      css: 'CSS'
+      scss: 'Scss'
+      typoscript: 'TypoScript'
+      yaml: 'Yaml'
+      xml: 'XML'
+
+    removePlugins:
+      - image
+
+    removeButtons:
+      - Anchor
+      - Underline
+      - JustifyBlock
+      - HorizontalRule
+
+buttons:
+  link:
+    relAttribute:
+      enabled: true
+    properties:
+      class:
+        allowedClasses: 'btn btn-primary,btn btn-secondary,rte-icon fa-globe,rte-icon fa-envelope,rte-icon fa-download,rte-icon fa-mobile-alt,rte-icon fa-phone'
+
+classesAnchor:
+  linkDownload:
+    class: 'rte-icon fa-download'
+    type: 'file'
+  linkExternal:
+    class: 'rte-icon fa-globe'
+    type: 'url'
+  linkMail:
+    class: 'rte-icon fa-envelope'
+    type: 'mail'
+  linkPhone-1:
+    class: 'rte-icon fa-mobile-alt'
+    type: 'telephone'
+  linkPhone-2:
+    class: 'rte-icon fa-phone'
+    type: 'telephone'
+classes:
+  'btn btn-primary':
+    name: 'Button primary'
+  'btn btn-secondary':
+    name: 'Button secondary'
+  'rte-icon fa-download':
+    name: 'Download Icon'
+  'rte-icon fa-globe':
+    name: 'Web Icon'
+  'rte-icon fa-envelope':
+    name: 'E-Mail Icon'
+  'rte-icon fa-mobile-alt':
+    name: 'Mobile Icon'
+  'rte-icon fa-phone':
+    name: 'Phone Icon'

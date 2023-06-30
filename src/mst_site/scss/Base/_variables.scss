@@ -1,0 +1,92 @@
+:root {
+  --white: #{map-get($colors, 'white')};
+  --blue: #{map-get($colors, 'blue')};
+  --black: #{map-get($colors, 'black')};
+  --red: #{map-get($colors, 'red')};
+  --green-light: #{map-get($colors, 'green-light')};
+  --grey: #{map-get($colors, 'grey')};
+
+  --foreground: #{map-get($colors, 'black')};
+  --background: #{map-get($colors, 'white')};
+  --accent: #{map-get($colors, 'green')};
+  --accent-2: #{map-get($colors, 'orange')};
+  --shadow: #{map-get($colors, 'shadow_light')};
+  --border: #{map-get($colors, 'border_light')};
+  --borderSolid: #{map-get($colors, 'border_light_solid')};
+  // used by om cookie
+
+  --grey_dark: #{map-get($colors, 'grey_dark')};
+
+  --containerWidth: #{map-get($containerWith, 'small')};
+  @media (min-width: map-get($breakpoints, 'large')) {
+    --containerWidth: #{map-get($containerWith, 'medium')};
+  }
+  @media (min-width: map-get($breakpoints, 'large')) {
+    --containerWidth: #{map-get($containerWith, 'large')};
+  }
+  @media (min-width: map-get($breakpoints, 'large')) {
+    --containerWidth: #{map-get($containerWith, 'wide')};
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.mstitb_color {
+  &--accent {
+    color: var(--accent);
+  }
+
+  &--background {
+    color: var(--background);
+  }
+
+  &--foreground {
+    color: var(--foreground);
+  }
+}
+
+.mstitb_bg {
+  &--accent {
+    background-color: var(--accent);
+
+    a:hover {
+
+    }
+  }
+
+  &--background {
+    background-color: var(--background);
+  }
+
+  &--foreground {
+    background-color: var(--foreground);
+  }
+
+  &--black {
+    background-color: map-get($colors, $key: 'black');
+  }
+
+  &--grey1 {
+    background-color: map-get($colors, $key: 'grey1');
+  }
+
+  &--grey2 {
+    background-color: map-get($colors, $key: 'grey2');
+  }
+
+  &--red {
+    background-color: map-get($colors, $key: 'red');
+  }
+
+  &--green {
+    background-color: map-get($colors, $key: 'green');
+  }
+
+  &--blue {
+    background-color: map-get($colors, $key: 'blue');
+  }
+
+}

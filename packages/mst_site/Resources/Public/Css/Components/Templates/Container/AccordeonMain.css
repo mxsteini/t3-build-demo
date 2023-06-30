@@ -1,0 +1,13 @@
+.accordeon {
+  background: yellow;
+}
+.accordeon__header {
+  background: cyan;
+}
+
+.accordeon-item__header {
+  background: green;
+}
+.accordeon-item__header:hover {
+  cursor: pointer;
+}

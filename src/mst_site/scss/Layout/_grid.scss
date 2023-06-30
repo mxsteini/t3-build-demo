@@ -1,0 +1,191 @@
+:root {
+  --grid_gap: #{map-get($gap, small)};
+  --section_padding: #{map-get($gap, small)};
+}
+
+@media (min-width: map-get($breakpoints, 'medium')) {
+  :root {
+    --grid_gap: #{map-get($gap, medium)};
+    --section_padding: #{map-get($gap, medium)};
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'large')) {
+  :root {
+    --grid_gap: #{map-get($gap, large)};
+    --section_padding: #{map-get($gap, medium)};
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'wide')) {
+  :root {
+    --grid_gap: #{map-get($gap, wide)};
+    --section_padding: #{map-get($gap, medium)};
+  }
+}
+
+
+.mstitb {
+  &_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 20px 40px 20px;
+
+    @media (min-width: map-get($breakpoints, 'medium')) {
+      padding: 60px calc(var(--grid_gap) * 1px) 80px;
+      width: map-get($containerWith, 'medium');
+    }
+    @media (min-width: map-get($breakpoints, 'large')) {
+      max-width: map-get($containerWith, 'large');
+    }
+
+    @media (min-width: map-get($breakpoints, 'wide')) {
+      max-width: map-get($containerWith, 'wide');
+    }
+
+    &--fullsize {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  &_header &_container {
+    padding: 20px calc(var(--grid_gap) * 1px) 20px;
+  }
+
+  &_default + &_default > &_container {
+    padding-top: 0;
+    margin-top: -20px;
+    @media (min-width: map-get($breakpoints, 'medium')) {
+      margin-top: -80px;
+    }
+  }
+
+  &_section {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: calc(var(--section_padding) * 1px);
+    padding-bottom: calc(var(--section_padding) * 1px);
+    width: 100%;
+
+  }
+
+  &_row {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: calc(var(--grid_gap) * 1px);
+    width: 100%;
+    flex-grow: 1;
+    @media (min-width: map-get($breakpoints, 'medium')) {
+      flex-direction: row;
+    }
+    @media (min-width: map-get($breakpoints, 'large')) {
+      flex-wrap: wrap;
+    }
+
+    &--center,
+    &--33-33-33 {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+  }
+
+  &_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    *:first-child {
+      margin-top: 0 !important;
+    }
+
+    &--auto {
+      width: auto;
+    }
+
+    &--25 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: 25%;
+      }
+    }
+
+    &--33 {
+      width: 100%;
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: 50%;
+        flex-grow: 0;
+      }
+      @media (min-width: map-get($breakpoints, 'large')) {
+        width: calc(33% - var(--grid_gap));
+        height: 100%;
+        flex-grow: 1;
+      }
+    }
+
+    &--40 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: calc(40% - (var(--grid_gap) / 2) * 1px);
+      }
+    }
+
+    &--50 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: calc(50% - (var(--grid_gap) / 2) * 1px);
+      }
+    }
+
+    &--60 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: calc(60% - (var(--grid_gap) / 2) * 1px);
+      }
+    }
+
+    &--66 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: 66%;
+      }
+    }
+
+    &--75 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        width: 75%;
+      }
+    }
+
+    &--80 {
+      @media (min-width: map-get($breakpoints, 'medium')) {
+        flex-grow: 0;
+        width: 83%;
+      }
+    }
+  }
+}
