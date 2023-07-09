@@ -44,8 +44,8 @@ The TYPO3 Demo show the full power of t3-build.
 git clone https://github.com/mxsteini/t3-build-demo.git
 cd t3-build-demo
 ddev start
-ddev npm i
-ddev npm run build
+ddev exec npm i
+ddev exec npm run build
 ddev composer install
 ddev snapshot restore --latest
 ddev npm start
@@ -67,3 +67,9 @@ https://t3builddemo.ddev.site/typo3
 If you see the demo page, you go to src/mst_itb and peek and poke in any file you want.
 You can also login into the backend and change things. Each save event should trigger the browsersync and you could see your changes instantly.
 
+#### cleanup
+```bash
+ddev delete -Oy
+cd ..
+rm -rf t3-build-demo
+```
