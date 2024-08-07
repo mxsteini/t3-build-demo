@@ -15,6 +15,7 @@ To see the full power of t3-build, you can choose between the standalone mode or
 ### Standalone Demo
 #### Prerequisites
 - node 16
+- mkcert
 
 In standalone mode t3-build provides a small template engine powered by posthtml. Just start width:
 
@@ -37,6 +38,7 @@ The TYPO3 Demo show the full power of t3-build.
 - [Docker Desktop or Colima](https://ddev.readthedocs.io/en/latest/users/install/docker-installation/)
 - [DDEV](https://ddev.readthedocs.io/en/latest/)
 - [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) needs to be enabled for HMR
+- [mkcert](https://github.com/FiloSottile/mkcert) ([DDEV-blogentry about mkcert](https://ddev.com/blog/ddev-local-trusted-https-certificates/))
 
 #### start demo
 
