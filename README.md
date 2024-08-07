@@ -50,7 +50,7 @@ ddev composer install
 ddev snapshot restore --latest
 ddev npm start
 ```
-Since browsersync is running in ddev, the url has the wrong protocol.
+Be aware to use https, instead of http (which is what Browsersync is telling you to use):
 
 Browsersync: \
 https://t3builddemo.ddev.site:4000/
